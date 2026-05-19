@@ -9,6 +9,8 @@
 var authenticationListener;
 var GLOBAL_user;
 
+export let signedIn = false
+
  // Set up a listener for the login state of the user.
 function fb_login() {
   authenticationListener = firebase.auth().onAuthStateChanged(fb_handleLogin);
@@ -32,11 +34,18 @@ function fb_popupLogin() {
   firebase.auth().signInWithPopup(provider).then((result) => {
     GLOBAL_user = result.user; // Save the user object to a global variable
     console.log("User has logged in", GLOBAL_user["displayName"])
+    signedIn = 1
+    console.log(singedIn)
   });
 }
 
 function fb_logout() {
-    authenticationListener;
+    authenticationListener();
     firebase.auth().signOut();
     console.log("hopeuflly logged out")
+    signedIn = -1
+    console.log(singedIn)
 }
+
+window.fb_login = fb_login
+window.fb_logout = fb_logout

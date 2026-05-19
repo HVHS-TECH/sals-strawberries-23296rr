@@ -15,8 +15,8 @@
   <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-analytics.js"></script>
   <!-- firebase end ******************************************-->
   <script src="fb_setup.js"></script>
-  <script src="fb_io.js"></script>
-  <script src="script.js"></script>
+  <script type="module" src="fb_io.js"></script>
+  <script type="module" src="script.js"></script>
 </head>
 <body>
   <div class="container">
@@ -38,7 +38,7 @@
       <!-- add more fields here -->
     </form>
 
-    <button onclick="fb_write()">Submit</button>
+    <button onclick="writeForm()">Submit</button>
 
     <p id="statusMessage"></p>
   </div>
