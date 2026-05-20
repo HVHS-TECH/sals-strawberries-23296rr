@@ -5,6 +5,7 @@ let favoriteFlavour
 let orderServings
 
 window.writeForm = writeForm
+window.reset = reset
 
 import {signedIn} from './fb_io.js';
 

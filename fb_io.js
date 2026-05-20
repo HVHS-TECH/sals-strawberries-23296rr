@@ -30,12 +30,11 @@ function fb_handleLogin(_user) {
 // Run the Google login popup
 function fb_popupLogin() {
   var provider = new firebase.auth.GoogleAuthProvider();
-
   firebase.auth().signInWithPopup(provider).then((result) => {
     GLOBAL_user = result.user; // Save the user object to a global variable
     console.log("User has logged in", GLOBAL_user["displayName"])
-    signedIn = 1
-    console.log(singedIn)
+    signedIn = true
+    console.log(signedIn)
   });
 }
 
@@ -43,8 +42,8 @@ function fb_logout() {
     authenticationListener();
     firebase.auth().signOut();
     console.log("hopeuflly logged out")
-    signedIn = -1
-    console.log(singedIn)
+    signedIn = false
+    console.log(signedIn)
 }
 
 window.fb_login = fb_login
