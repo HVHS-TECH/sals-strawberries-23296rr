@@ -7,9 +7,15 @@
  **************************************************************
  **************************************************************/
 var authenticationListener;
-var GLOBAL_user;
 
-export let signedIn = false
+export let signedIn = false;
+export let GLOBAL_user;
+
+window.onload = (event) => {
+  fb_login()
+  fb_logout()
+};
+
 
  // Set up a listener for the login state of the user.
 function fb_login() {
@@ -35,6 +41,7 @@ function fb_popupLogin() {
     console.log("User has logged in", GLOBAL_user["displayName"])
     signedIn = true
     console.log(signedIn)
+    console.log(GLOBAL_user)
   });
 }
 
