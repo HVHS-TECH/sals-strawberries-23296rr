@@ -57,7 +57,7 @@ function fb_write() {
   )
 console.log("updated firebase")
 console.log(orderName + "s order was " + favoriteFlavour + " and has ordered " + orderServings + " servings")
-element.innerText = "Users Details -  Email: " + GLOBAL_user["email"] + " Name: " + GLOBAL_user["displayName"];
+element.innerText = "Hey " + GLOBAL_user["displayName"] + ", your order has come through. Thank you for ordering Dima's Divine Dumplings. We will send details to your email, " + GLOBAL_user["email"];
 }
 
 function blah() {
