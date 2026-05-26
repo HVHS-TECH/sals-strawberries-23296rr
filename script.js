@@ -52,9 +52,10 @@ function fb_write() {
   console.log("writing up order")
   firebase.database().ref('/dimasdivinedumplings/orders/' + GLOBAL_user["uid"]).set(
     {
+        name: orderName,
         flavour: favoriteFlavour,
         servings: orderServings,
-    }
+      }
   )
 console.log("updated firebase")
 element.innerText = "Hey " + GLOBAL_user["displayName"] + ", your order has come through. Thank you for ordering Dima's Divine Dumplings. We will send details to your email, " + GLOBAL_user["email"];
