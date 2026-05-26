@@ -36,6 +36,7 @@ function writeForm(){
     orderName = document.getElementById("name").value;
     favoriteFlavour = document.getElementById("favoriteFlavour").value;
     orderServings = document.getElementById("servingsQuantity").value;
+    console.log(GLOBAL_user["uid"])
     console.log(orderName)
     console.log(orderServings)
     console.log(favoriteFlavour)
@@ -49,18 +50,12 @@ function writeForm(){
 
 function fb_write() {
   console.log("writing up order")
-  firebase.database().ref('/dimasdivinedumplings/orders/' + orderName).set(
+  firebase.database().ref('/dimasdivinedumplings/orders/' + GLOBAL_user["uid"]).set(
     {
         flavour: favoriteFlavour,
         servings: orderServings,
     }
   )
 console.log("updated firebase")
-console.log(orderName + "s order was " + favoriteFlavour + " and has ordered " + orderServings + " servings")
 element.innerText = "Hey " + GLOBAL_user["displayName"] + ", your order has come through. Thank you for ordering Dima's Divine Dumplings. We will send details to your email, " + GLOBAL_user["email"];
-}
-
-function blah() {
-  element.innerText = "quandaildingle"
-
 }
