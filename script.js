@@ -6,6 +6,8 @@ let orderServings
 
 window.writeForm = writeForm
 window.reset = reset
+window.allHighScores = allHighScores
+window.fb_displayAllHighScores = fb_displayAllHighScores
 
 import {signedIn} from './fb_io.js';
 import {GLOBAL_user} from './fb_io.js';
@@ -13,6 +15,21 @@ import {GLOBAL_user} from './fb_io.js';
 
 const HTML_OUTPUT = document.getElementById("databaseOutput");
 let element = document.getElementById("statusMessage");
+
+function allHighScores() {
+  firebase.database().ref('/dimasdivinedumplings/orders').once('value', fb_displayAllHighScores)
+}
+
+function fb_displayAllHighScores(snapshot) {
+  let highScores = Object.keys(snapshot.val())
+  var dbData = snapshot.val();
+  console.log(dbData)
+  for(var i = 0; i < highScores.length; i++){
+    let key = highScores[i];
+    element.innerText = "Player " + i + " is " + key + ", they got a highscore of " + dbData[key]["flavour"] + " and a low score of " + dbData[key]["lowscore"]
+  }
+}
+
 
 
 function reset() {
